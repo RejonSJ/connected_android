@@ -1,13 +1,16 @@
+import 'package:connected_android/widgets/product_list.dart';
+import 'package:connected_android/widgets/search_input.dart';
 import 'package:flutter/material.dart';
+import '../widgets/shop_list.dart';
 
-class TabsBar extends StatefulWidget {
-  const TabsBar({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<TabsBar> createState() => _TabsBarState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _TabsBarState extends State<TabsBar>
+class _HomePageState extends State<HomePage>
     with TickerProviderStateMixin {
   late TabController _tabController;
 
@@ -30,8 +33,9 @@ class _TabsBarState extends State<TabsBar>
             },
             icon: const Icon(Icons.account_circle_outlined))
           ],
-          bottom: const TabBar(
-            tabs: [
+          bottom: TabBar(
+            controller: _tabController,
+            tabs: const [
               Tab(icon: Icon(Icons.bento_outlined), text: 'Productos',),
               Tab(icon: Icon(Icons.store_outlined), text: 'Tiendas',)
             ],
@@ -39,8 +43,19 @@ class _TabsBarState extends State<TabsBar>
         ),
         body: TabBarView(
           controller: _tabController,
-          children: const <Widget>[
-            
+          children: <Widget>[
+            Stack(
+              children: const [
+                ProductList(),
+                SearchInput(searchType: 'Producto',),
+              ]
+            ),
+            Stack(
+              children: const [
+                ShopList(),
+                SearchInput(searchType: 'Tienda'),
+              ]
+            ),
           ],
         ),
       ),

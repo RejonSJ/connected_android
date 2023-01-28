@@ -60,8 +60,32 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
-  # assets:
+  assets:
+   - images/big/big1.jpg
+   - images/big/big2.jpg
+
+   - images/people/placeholder.png
+
+   - images/placeholders/logowhite.png
+   - images/placeholders/logo.png
+   - images/placeholders/mapplaceholder.png
+
+   - images/product/1.jpg
+   - images/product/2.jpg
+   - images/product/2.jpg
+   - images/product/3.jpg
+   - images/product/4.jpg
+   - images/product/5.jpg
+   - images/product/6.jpg
+   - images/product/7.jpg
+   - images/product/8.jpg
+
+   - images/shop/placeholder/1.jpg
+   - images/shop/placeholder/2.jpg
+   - images/shop/placeholder/3.jpg
+   - images/shop/placeholder/4.jpg
+   - images/shop/placeholder/5.jpg
+   - images/shop/placeholder/6.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
