@@ -12,7 +12,7 @@ class Register extends StatelessWidget {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.all(25),
+          padding: const EdgeInsets.all(25),
           child: Center(
             child: SingleChildScrollView(
               child: Column(
@@ -32,81 +32,81 @@ class Register extends StatelessWidget {
                   ),
 
                   ///const
-                  Text(
-                    "Create New Acount",
+                  const Text(
+                    "Crear una nueva cuenta",
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    "sing in to continue",
+                    "Inicia Secion para continuar",
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
                         color: Colors.grey[400]),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     child: TextFormField(
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 22,
                       ),
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           border: InputBorder.none,
                           prefixIcon: Icon(Icons.person_outline, size: 30),
-                          labelText: "Name",
+                          labelText: "Nombre",
                           labelStyle: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w800,
                           )),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     child: TextFormField(
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 22,
                       ),
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           border: InputBorder.none,
                           prefixIcon: Icon(Icons.photo, size: 30),
-                          labelText: "Photo",
+                          labelText: "Fotografia",
                           labelStyle: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w800,
                           )),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     child: TextFormField(
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 22,
                       ),
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           border: InputBorder.none,
                           prefixIcon: Icon(Icons.location_pin, size: 30),
-                          labelText: "Location",
+                          labelText: "Localizacion",
                           labelStyle: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w800,
                           )),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     child: TextFormField(
                       obscureText: true,
                       style: TextStyle(
@@ -114,10 +114,10 @@ class Register extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         fontSize: 22,
                       ),
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           border: InputBorder.none,
                           prefixIcon: Icon(Icons.email),
-                          labelText: "Email",
+                          labelText: "Correo electronico",
                           labelStyle: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w800,
@@ -125,43 +125,43 @@ class Register extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    padding:const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     child: TextFormField(
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 22,
                       ),
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           border: InputBorder.none,
                           prefixIcon: Icon(Icons.lock, size: 30),
-                          labelText: "Password",
+                          labelText: "Contraseña",
                           labelStyle: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w800,
                           )),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   SizedBox(
                       height: 55,
                       width: double.infinity,
                       child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                              primary: Color.fromARGB(255, 125, 214, 128)),
+                              primary: const Color.fromARGB(255, 125, 214, 128)),
                           child: const Text(
-                            "Create Acount",
+                            "Create una cuenta",
                             style: TextStyle(fontSize: 20),
                           ))),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        "Already have an acount",
+                      const Text (
+                        "Ya tienes cuenta ?",
                         style: TextStyle(
                           fontSize: 18,
                         ),
@@ -169,7 +169,7 @@ class Register extends StatelessWidget {
                       GestureDetector(
                         onTap: () => togSreen(),
                         child: Text(
-                          "Loaging",
+                          "Iniciar Secion",
                           style: TextStyle(
                             color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold,

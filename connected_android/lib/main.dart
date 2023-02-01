@@ -1,4 +1,3 @@
-import 'package:connected_android/pages/auth.dart';
 import 'package:connected_android/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'color_schemes.g.dart';
@@ -16,8 +15,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
       darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
-      //home: const HomePage()
-      home: const Auth(),
+      home:  const HomePage(),
+
     );
   }
 }

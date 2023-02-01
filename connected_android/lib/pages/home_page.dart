@@ -1,3 +1,4 @@
+import 'package:connected_android/pages/auth.dart';
 import 'package:connected_android/widgets/product_list.dart';
 import 'package:connected_android/widgets/search_input.dart';
 import 'package:flutter/material.dart';
@@ -28,9 +29,10 @@ class _HomePageState extends State<HomePage>
         appBar: AppBar(
           title: const Text('Connected'),
           actions: [
-            IconButton(onPressed: () {
-              
-            },
+            IconButton(onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Auth())
+            ),
             icon: const Icon(Icons.account_circle_outlined))
           ],
           bottom: TabBar(
