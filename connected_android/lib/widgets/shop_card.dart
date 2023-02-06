@@ -1,7 +1,6 @@
 import 'package:connected_android/widgets/shop_contact.dart';
 import 'package:flutter/material.dart';
 
-import '../color_schemes.g.dart';
 import '../core/entities/shop.dart';
 
 createShopList(BuildContext context, Shop shops) => InkWell(
@@ -12,7 +11,7 @@ createShopList(BuildContext context, Shop shops) => InkWell(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12),
       side: BorderSide(
-        color: lightColorScheme.outlineVariant,
+        color: Theme.of(context).colorScheme.outlineVariant,
         width: 1,
       ),
     ),
@@ -34,8 +33,8 @@ createShopList(BuildContext context, Shop shops) => InkWell(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(shops.name, style: TextStyle(fontSize: 20, color: lightColorScheme.onSurface),),
-                  Text(shops.address, style: TextStyle(fontSize: 16, color: lightColorScheme.onSurfaceVariant))
+                  Text(shops.name, style: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.onSurface),),
+                  Text(shops.address, style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.onSurfaceVariant))
                 ],
               ),
             ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../color_schemes.g.dart';
 import '../core/entities/product.dart';
 import '../core/entities/shop.dart';
 
@@ -12,7 +11,7 @@ createProductList(BuildContext context, Shop shops, Product products) => InkWell
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(12),
       side: BorderSide(
-        color: lightColorScheme.outlineVariant,
+        color: Theme.of(context).colorScheme.outlineVariant,
         width: 1,
       ),
     ),
@@ -29,9 +28,9 @@ createProductList(BuildContext context, Shop shops, Product products) => InkWell
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(products.name, style: TextStyle(fontSize: 20, color: lightColorScheme.onSurface),),
-                  Text(shops.name, style: TextStyle(fontSize: 12, color: lightColorScheme.onSurfaceVariant)),
-                  Text(products.description, style: TextStyle(fontSize: 14, color: lightColorScheme.onSurface),),
+                  Text(products.name, style: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.onSurface),),
+                  Text(shops.name, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                  Text(products.description, style: TextStyle(fontSize: 14, color: Theme.of(context).colorScheme.onSurface),),
                 ],
               ),
             ),

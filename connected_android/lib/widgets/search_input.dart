@@ -1,4 +1,3 @@
-import 'package:connected_android/color_schemes.g.dart';
 import 'package:connected_android/pages/search_page.dart';
 import 'package:flutter/material.dart';
 
@@ -21,9 +20,9 @@ class _SearchInputState extends State<SearchInput> {
               Flexible(
                 flex: 1,
                 child: Card(
-                  color: lightColorScheme.surface,
+                  color: Theme.of(context).colorScheme.surface,
                   elevation: 3,
-                  surfaceTintColor: lightColorScheme.surfaceTint,
+                  surfaceTintColor: Theme.of(context).colorScheme.surfaceTint,
                   shadowColor: Colors.transparent,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100)),
@@ -35,19 +34,15 @@ class _SearchInputState extends State<SearchInput> {
                                 searchType: widget.searchType,
                               )),
                     ),
-                    cursorColor: lightColorScheme.onSurfaceVariant,
+                    cursorColor: Theme.of(context).colorScheme.onSurfaceVariant,
                     decoration: InputDecoration(
                       border:
                           const OutlineInputBorder(borderSide: BorderSide.none),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 16),
                       hintText: 'Buscar ${widget.searchType}',
                       hintStyle: TextStyle(
-                          color: lightColorScheme.onSurfaceVariant,
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
                           fontSize: 16),
-                      prefixIcon: Container(
-                        padding: const EdgeInsets.all(15),
-                        width: 18,
-                        child: const Icon(Icons.menu),
-                      ),
                       suffixIcon: const SizedBox(
                         width: 18,
                         child: Icon(Icons.search),

@@ -1,4 +1,3 @@
-import 'package:connected_android/color_schemes.g.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatelessWidget {
@@ -15,7 +14,7 @@ class SearchPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.search_off, size: 150, color: lightColorScheme.onSurfaceVariant,),
+            Icon(Icons.search_off, size: 150, color: Theme.of(context).colorScheme.onSurfaceVariant,),
             const Text('No se encontró ningún resultado'),
             OutlinedButton(
               onPressed: () {
