@@ -39,11 +39,7 @@ class ShopList extends StatelessWidget {
             return ListView.builder(
               itemCount: snapshot.data?.length,
               itemBuilder: (context, index) {
-                return createShopList(context,
-                  snapshot.data?[index]['name'],
-                  snapshot.data?[index]['picture'],
-                  snapshot.data?[index]['location']
-                );
+                return createShopList(context, snapshot, index);
               },
               padding:
               const EdgeInsets.only(bottom: 10, left: 16, right: 16, top: 110),

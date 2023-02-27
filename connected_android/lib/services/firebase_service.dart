@@ -43,7 +43,7 @@ Future<List> getProducts() async {
 
 Future<List> getStores() async {
   List products = [];
-  CollectionReference collectionReferenceProducts = db.collection('product');
+  CollectionReference collectionReferenceProducts = db.collection('store');
 
   QuerySnapshot queryProducts = await collectionReferenceProducts.get();
 
