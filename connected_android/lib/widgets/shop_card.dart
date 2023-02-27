@@ -1,10 +1,7 @@
-import 'package:connected_android/widgets/shop_contact.dart';
 import 'package:flutter/material.dart';
 
-import '../core/entities/shop.dart';
-
-createShopList(BuildContext context, Shop shops) => InkWell(
-  onTap:() => displayAlert(context, shops),
+createShopList(BuildContext context, String name, String picture, String location) => InkWell(
+  //onTap:() => displayAlert(context, shops),
   child: Card(
     semanticContainer: true,
     clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -21,8 +18,8 @@ createShopList(BuildContext context, Shop shops) => InkWell(
         children: [
           SizedBox(
             height: 140,
-            width: 400,
-            child: Image.asset(shops.profilePic, fit: BoxFit.cover,
+            width: double.infinity,
+            child: Image.asset('images/shop/placeholder/$picture.jpg', fit: BoxFit.cover,
             )
           ),
           Container(
@@ -33,8 +30,8 @@ createShopList(BuildContext context, Shop shops) => InkWell(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(shops.name, style: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.onSurface),),
-                  Text(shops.address, style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.onSurfaceVariant))
+                  Text(name, style: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.onSurface),),
+                  Text(location, style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.onSurfaceVariant))
                 ],
               ),
             ),

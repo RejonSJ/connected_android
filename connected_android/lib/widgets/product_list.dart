@@ -1,8 +1,29 @@
-import 'package:connected_android/data/product_repository.dart';
-import 'package:connected_android/data/shop_repository.dart';
 import 'package:connected_android/widgets/product_card.dart';
 import 'package:flutter/material.dart';
+import '../services/firebase_service.dart';
+/*
+class ProductList extends StatelessWidget {
+  const ProductList({super.key});
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Consumer<ProductProvider>(
+        builder: (context, value, child) => value.isLoading
+        ? const Center(child: CircularProgressIndicator())
+        : ListView.builder(
+          itemCount: value.products?.length,
+          itemBuilder: (context, index) {
+            final product = value.products![index];
+            return Text(product.name);
+          },
+        )
+      ),
+    );
+  }
+}
+*/
+///*
 class ProductList extends StatelessWidget {
   const ProductList({
     super.key,
@@ -10,22 +31,32 @@ class ProductList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var shops = ShopRepository.getShop();
-    var products = ProductRepository.getProduct();
     return Scaffold(
-      body: SafeArea(
-        child: ListView.separated(
-          itemCount: 6,
-          itemBuilder: (BuildContext context, int index) =>
-              createProductList(context, shops[products[index].storeId], products[index]),
-          separatorBuilder: (BuildContext context, int index) => const Divider(
-            color: Colors.transparent,
-          ),
-          padding:
+      body: FutureBuilder(
+        future: getProducts(),
+        builder: ((context, snapshot) {
+          if(snapshot.hasData) {
+            return ListView.builder(
+              itemCount: snapshot.data?.length,
+              itemBuilder: (context, index) {
+                return createProductList(context,
+                  snapshot.data?[index]['name'],
+                  snapshot.data?[index]['store'],
+                  snapshot.data?[index]['image'],
+                  snapshot.data?[index]['description']
+                );
+              },
+              padding:
               const EdgeInsets.only(bottom: 10, left: 16, right: 16, top: 110),
-          physics: const BouncingScrollPhysics(),
-        ),
-      ),
+            );
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        })
+      )
     );
   }
 }
+//*/

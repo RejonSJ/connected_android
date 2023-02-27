@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../core/entities/product.dart';
-import '../core/entities/shop.dart';
-
-createProductList(BuildContext context, Shop shops, Product products) => InkWell(
+createProductList(BuildContext context, String name, String store, String image, String description) => InkWell(
   //onTap:() => ,
   child: Card(
     semanticContainer: true,
@@ -28,9 +25,9 @@ createProductList(BuildContext context, Shop shops, Product products) => InkWell
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(products.name, style: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.onSurface),),
-                  Text(shops.name, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
-                  Text(products.description, style: TextStyle(fontSize: 14, color: Theme.of(context).colorScheme.onSurface),),
+                  Text(name, style: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.onSurface),),
+                  Text(store, style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurfaceVariant)),
+                  Text(description, style: TextStyle(fontSize: 14, color: Theme.of(context).colorScheme.onSurface),),
                 ],
               ),
             ),
@@ -38,7 +35,7 @@ createProductList(BuildContext context, Shop shops, Product products) => InkWell
           SizedBox(
             height: 100,
             width: 100,
-            child: Image.asset(products.productPic, fit: BoxFit.cover,)
+            child: Image.asset('images/product/$image.jpg', fit: BoxFit.cover,)
           ),
         ],
       ),
