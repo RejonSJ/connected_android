@@ -1,18 +1,18 @@
 import 'package:connected_android/widgets/shop_contact.dart';
 import 'package:flutter/material.dart';
 
-createShopList(BuildContext context, AsyncSnapshot snapshot, int index) => InkWell(
-  onTap:() => displayAlert(context, snapshot, index),
-  child: Card(
-    semanticContainer: true,
-    clipBehavior: Clip.antiAliasWithSaveLayer,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(12),
-      side: BorderSide(
-        color: Theme.of(context).colorScheme.outlineVariant,
-        width: 1,
-      ),
+createShopList(BuildContext context, AsyncSnapshot snapshot, int index) => Card(
+  semanticContainer: true,
+  clipBehavior: Clip.antiAliasWithSaveLayer,
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(12),
+    side: BorderSide(
+      color: Theme.of(context).colorScheme.outlineVariant,
+      width: 1,
     ),
+  ),
+  child: InkWell(
+      onTap:() => displayAlert(context, snapshot, index),
     child: SizedBox(
       child: Column(
         mainAxisSize: MainAxisSize.min,

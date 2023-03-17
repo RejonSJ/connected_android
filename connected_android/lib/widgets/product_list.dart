@@ -39,12 +39,7 @@ class ProductList extends StatelessWidget {
             return ListView.builder(
               itemCount: snapshot.data?.length,
               itemBuilder: (context, index) {
-                return createProductList(context,
-                  snapshot.data?[index]['name'],
-                  snapshot.data?[index]['store'],
-                  snapshot.data?[index]['image'],
-                  snapshot.data?[index]['description']
-                );
+                return createProductList(context,snapshot,index);
               },
               padding:
               const EdgeInsets.only(bottom: 10, left: 16, right: 16, top: 110),

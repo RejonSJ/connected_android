@@ -1,16 +1,18 @@
-import 'package:connected_android/pages/search_page.dart';
+import 'package:connected_android/pages/product_search_page.dart';
 import 'package:flutter/material.dart';
 
-class SearchInput extends StatefulWidget {
-  final String searchType;
-  const SearchInput({Key? key, required this.searchType}) : super(key: key);
+import '../../../pages/shop_search_page.dart';
+
+class StoreSearchBar extends StatefulWidget {
+  const StoreSearchBar({Key? key}) : super(key: key);
   @override
-  State<SearchInput> createState() => _SearchInputState();
+  State<StoreSearchBar> createState() => _StoreSearchBarState();
 }
 
-class _SearchInputState extends State<SearchInput> {
+class _StoreSearchBarState extends State<StoreSearchBar> {
   @override
   Widget build(BuildContext context) {
+    final searchController = TextEditingController();
     return Container(
       margin: const EdgeInsets.only(top: 25, left: 16, right: 16),
       child: Column(
@@ -27,11 +29,12 @@ class _SearchInputState extends State<SearchInput> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100)),
                   child: TextField(
+                    controller: searchController,
                     onSubmitted: (value) => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => SearchPage(
-                                searchType: widget.searchType,
+                          builder: (context) => StoreSearchPage(
+                                search: searchController.text
                               )),
                     ),
                     cursorColor: Theme.of(context).colorScheme.onSurfaceVariant,
@@ -39,7 +42,7 @@ class _SearchInputState extends State<SearchInput> {
                       border:
                           const OutlineInputBorder(borderSide: BorderSide.none),
                       contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-                      hintText: 'Buscar ${widget.searchType}',
+                      hintText: 'Buscar Tienda',
                       hintStyle: TextStyle(
                           color: Theme.of(context).colorScheme.onSurfaceVariant,
                           fontSize: 16),

@@ -1,7 +1,8 @@
 import 'package:connected_android/widgets/product_list.dart';
-import 'package:connected_android/widgets/search_input.dart';
+import 'package:connected_android/widgets/search/products/searchbar.dart';
 import 'package:flutter/material.dart';
 import '../widgets/drawer/default_drawer.dart';
+import '../widgets/search/stores/searchbar.dart';
 import '../widgets/shop_list.dart';
 
 class HomePage extends StatefulWidget {
@@ -42,19 +43,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ],
           ),
         ),
-        drawer: DefaultDrawer(),
+        //drawer: DefaultDrawer(),
         body: TabBarView(
           controller: _tabController,
           children: <Widget>[
             Stack(children: const [
               ProductList(),
-              SearchInput(
-                searchType: 'Producto',
-              ),
+              ProductSearchBar(),
             ]),
             Stack(children: const [
               ShopList(),
-              SearchInput(searchType: 'Tienda'),
+              StoreSearchBar(),
             ]),
           ],
         ),

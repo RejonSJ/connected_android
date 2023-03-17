@@ -1,7 +1,5 @@
-
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
-
-import '../core/entities/shop.dart';
 
 displayAlert(BuildContext context, AsyncSnapshot snapshot, int index) => showDialog(
   context: context,
@@ -38,8 +36,18 @@ displayAlert(BuildContext context, AsyncSnapshot snapshot, int index) => showDia
         ),
       if (snapshot.data?[index]['contactWA']!= null)
         InkWell(
-          onTap: () {
-            
+          onTap: () async {
+            var whatsapp = snapshot.data?[index]['contactWA'];
+                var whatsappAndroid =Uri.parse("https://wa.me/$whatsapp");
+                if (await canLaunchUrl(whatsappAndroid)) {
+                    await launchUrl(whatsappAndroid);
+                } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("WhatsApp is not installed on the device"),
+                    ),
+                  );
+                }
           },
           child: ListTile(
             title: const Text('Whatsapp'),
