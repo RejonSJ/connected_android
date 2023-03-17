@@ -1,29 +1,26 @@
 import 'package:connected_android/widgets/shop_contact.dart';
 import 'package:flutter/material.dart';
 
-import '../color_schemes.g.dart';
-import '../core/entities/shop.dart';
-
-createShopList(BuildContext context, Shop shops) => InkWell(
-  onTap:() => displayAlert(context, shops),
-  child: Card(
-    semanticContainer: true,
-    clipBehavior: Clip.antiAliasWithSaveLayer,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(12),
-      side: BorderSide(
-        color: lightColorScheme.outlineVariant,
-        width: 1,
-      ),
+createShopList(BuildContext context, AsyncSnapshot snapshot, int index) => Card(
+  semanticContainer: true,
+  clipBehavior: Clip.antiAliasWithSaveLayer,
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(12),
+    side: BorderSide(
+      color: Theme.of(context).colorScheme.outlineVariant,
+      width: 1,
     ),
+  ),
+  child: InkWell(
+      onTap:() => displayAlert(context, snapshot, index),
     child: SizedBox(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(
             height: 140,
-            width: 400,
-            child: Image.asset(shops.profilePic, fit: BoxFit.cover,
+            width: double.infinity,
+            child: Image.asset('images/shop/placeholder/${snapshot.data?[index]['picture']}.jpg', fit: BoxFit.cover,
             )
           ),
           Container(
@@ -34,8 +31,8 @@ createShopList(BuildContext context, Shop shops) => InkWell(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(shops.name, style: TextStyle(fontSize: 20, color: lightColorScheme.onSurface),),
-                  Text(shops.address, style: TextStyle(fontSize: 16, color: lightColorScheme.onSurfaceVariant))
+                  Text(snapshot.data?[index]['name'], style: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.onSurface),),
+                  Text(snapshot.data?[index]['location'], style: TextStyle(fontSize: 16, color: Theme.of(context).colorScheme.onSurfaceVariant))
                 ],
               ),
             ),
