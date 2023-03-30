@@ -11,7 +11,7 @@ class ProductSearchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Buscar producto'),
+        title: const Text('Buscar oferta'),
       ),
       body: FutureBuilder(
         future: getProductsByName(search),

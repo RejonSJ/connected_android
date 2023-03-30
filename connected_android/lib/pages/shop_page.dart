@@ -10,7 +10,7 @@ class ShopPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Shop Page'),
+        title: const Text('Página de tienda'),
       ),
       body: FutureBuilder(
         future: getProductStore(storeName),
@@ -41,52 +41,61 @@ class ShopPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    if (snapshot.data?[index]['contactMessage']!= null)
+                    InkWell(
+                      onTap: () {
+                          var location = snapshot.data?[index]['location'];
+                          var message = Uri.parse('https://www.google.com/maps/search/?api=1&query=$location"');
+                          launchUrl(message);
+                        },
+                      child: ListTile(
+                        title: const Text('Dirección'),
+                        subtitle: Text(snapshot.data?[index]['location']),
+                        leading: const Icon(Icons.place_outlined),
+                        trailing: const Icon(Icons.arrow_right),
+                      ),
+                    ),
+                    if (snapshot.data?[index]['contactMessage'] != null)
                       InkWell(
                         onTap: () {
-                          
+                          var number = snapshot.data?[index]['contactMessage'];
+                          var message = Uri.parse('sms:$number');
+                          launchUrl(message);
                         },
                         child: ListTile(
                           title: const Text('Mensaje directo'),
                           subtitle: Text(snapshot.data?[index]['contactMessage']),
-                          leading: const Icon(Icons.phone_outlined),
-                          trailing: const Icon(Icons.arrow_right),
-                        ),
-                      ),
-                    if (snapshot.data?[index]['contactCall']!= null)
-                      InkWell(
-                        onTap: () {
-                          
-                        },
-                        child: ListTile(
-                          title: const Text('Llamada directa'),
-                          subtitle: Text(snapshot.data?[index]['contactCall']),
                           leading: const Icon(Icons.message_outlined),
                           trailing: const Icon(Icons.arrow_right),
                         ),
                       ),
-                    if (snapshot.data?[index]['contactWA']!= null)
-                    InkWell(
-                      onTap: () async {
-                        var whatsapp = snapshot.data?[index]['contactWA'];
-                            var whatsappAndroid =Uri.parse("whatsapp://send?phone=$whatsapp");
-                            if (await canLaunchUrl(whatsappAndroid)) {
-                                await launchUrl(whatsappAndroid);
-                            } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text("WhatsApp is not installed on the device"),
-                                ),
-                              );
-                            }
-                      },
-                      child: ListTile(
-                        title: const Text('Whatsapp'),
-                        subtitle: Text(snapshot.data?[index]['contactWA']),
-                        leading: const Icon(Icons.phone_android_outlined),
-                        trailing: const Icon(Icons.arrow_right),
+                    if (snapshot.data?[index]['contactCall'] != null)
+                      InkWell(
+                        onTap: () {
+                          var number = snapshot.data?[index]['contactCall'];
+                          var call = Uri.parse('sms:$number');
+                          launchUrl(call);
+                        },
+                        child: ListTile(
+                          title: const Text('Llamada directa'),
+                          subtitle: Text(snapshot.data?[index]['contactCall']),
+                          leading: const Icon(Icons.phone_outlined),
+                          trailing: const Icon(Icons.arrow_right),
+                        ),
                       ),
-                    ),
+                    if (snapshot.data?[index]['contactWA'] != null)
+                      InkWell(
+                        onTap: () async {
+                          var whatsapp = '+52${snapshot.data?[index]['contactWA']}';
+                          var whatsappAndroid = Uri.parse("whatsapp://send?phone=$whatsapp");
+                          launchUrl(whatsappAndroid);
+                        },
+                        child: ListTile(
+                          title: const Text('Whatsapp'),
+                          subtitle: Text(snapshot.data?[index]['contactWA']),
+                          leading: const Icon(Icons.phone_android_outlined),
+                          trailing: const Icon(Icons.arrow_right),
+                        ),
+                      ),
                   ],
                 );
               },

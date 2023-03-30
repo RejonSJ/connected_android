@@ -1,12 +1,14 @@
+import 'package:connected_android/widgets/drawer/user_menu.dart';
 import 'package:connected_android/widgets/product_list.dart';
 import 'package:connected_android/widgets/search/products/searchbar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../widgets/drawer/default_drawer.dart';
 import '../widgets/search/stores/searchbar.dart';
 import '../widgets/shop_list.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final User user;
+  const HomePage ({ Key? key, required this.user }): super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -33,8 +35,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             controller: _tabController,
             tabs: const [
               Tab(
-                icon: Icon(Icons.bento_outlined),
-                text: 'Productos',
+                icon: Icon(Icons.discount_outlined),
+                text: 'Hot Deals',
               ),
               Tab(
                 icon: Icon(Icons.store_outlined),
@@ -43,7 +45,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ],
           ),
         ),
-        //drawer: DefaultDrawer(),
+        drawer: UserMenu(user: widget.user),
         body: TabBarView(
           controller: _tabController,
           children: <Widget>[
