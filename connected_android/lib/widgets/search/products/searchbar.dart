@@ -40,7 +40,7 @@ class _ProductSearchBarState extends State<ProductSearchBar> {
                       border:
                           const OutlineInputBorder(borderSide: BorderSide.none),
                       contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-                      hintText: 'Buscar Producto',
+                      hintText: 'Buscar Oferta',
                       hintStyle: TextStyle(
                           color: Theme.of(context).colorScheme.onSurfaceVariant,
                           fontSize: 16),

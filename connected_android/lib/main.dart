@@ -1,4 +1,5 @@
 import 'package:connected_android/pages/home_page.dart';
+import 'package:connected_android/pages/login.dart';
 import 'package:connected_android/services/firebase_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
       darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
-      home: const HomePage()
+      home: const Login()
     );
   }
   //*/
