@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "340044482497",
+    "firebase_url": "https://connecteddb-default-rtdb.firebaseio.com",
+    "project_id": "connecteddb",
+    "storage_bucket": "connecteddb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:340044482497:android:18dcd89939b048cc481140",
+        "android_client_info": {
+          "package_name": "com.example.connected_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "340044482497-3c59pcs0ebna945q3ov7b7un5hb7lobn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvWmT6Sdw58syb0HnMt0c3CRfzclPx7A8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "340044482497-3c59pcs0ebna945q3ov7b7un5hb7lobn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
